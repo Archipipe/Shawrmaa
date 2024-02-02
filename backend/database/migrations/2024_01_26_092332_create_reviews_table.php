@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('description',500);
+            $table->unsignedBigInteger('restaurant_id')->index();
+            $table->string('description',500)->nullable();
             $table->integer('rate');
             $table->timestamps();
 
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
