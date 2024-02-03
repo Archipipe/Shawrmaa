@@ -69,7 +69,7 @@ class LoginController extends Controller
             ->first();
 
         if (!$user->login_code)
-            return response()->json(['status' => 'failed', 'message' => 'You have to recreate login_code', 'errors' => []], 429);
+            return response()->json(['status' => 'failed', 'message' => 'User already verified.', 'errors' => []], 429);
         if (Hash::check($request->login_code, $user->login_code)) {
             $user->update(['login_code' => null, 'active' => true]);
             $token = $user->createToken($request->login_code)->plainTextToken;

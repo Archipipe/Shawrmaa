@@ -13,6 +13,7 @@ Route::post('/logout',[LoginController::class,'logout']);
 
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::post('/dashboard',DashboardController::class);
-    Route::post('/create_review',CreateReviewController::class);
+    Route::post('/review/create',CreateReviewController::class);
+    Route::post('/review/delete',CreateReviewController::class);
 });
 

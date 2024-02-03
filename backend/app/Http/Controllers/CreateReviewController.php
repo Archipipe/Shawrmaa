@@ -29,7 +29,8 @@ class CreateReviewController extends Controller
             return response()->json(['status' => 'failed', 'message' => 'Invalid data.', 'errors' => $validation->errors()], 401);
 
 
-        $review = auth()->user()->reviews()->create([
+        $review = Review::updateOrCreate(['user_id' => auth()->user()->id,
+            'restaurant_id' => $request->restaurant,],[
             'user_id' => auth()->user()->id,
             'restaurant_id' => $request->restaurant,
             'description' => $request->review,
@@ -39,7 +40,7 @@ class CreateReviewController extends Controller
         if(!$review)
             return response()->json(['status' => 'failed', 'message' => 'Unknown error', 'errors' => []], 500);
 
-        return response()->json(['status' => 'success', 'message' => '', 'errors' => []]);
+        return response()->json(['status' => 'success', 'message' => $review->wasChanged() ? 'updated' : 'created', 'errors' => []]);
     }
 
 }
