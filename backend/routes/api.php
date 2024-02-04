@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CreateReviewController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GetRestaurantsController;
 use App\Http\Controllers\LoginController;
@@ -15,9 +15,11 @@ Route::post('/logout',[LoginController::class,'logout']);
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::post('/dashboard',DashboardController::class);
 
-    Route::post('/review/create',CreateReviewController::class);
-    Route::delete('/review/delete',CreateReviewController::class);
+    Route::post('/review/create',[ReviewController::class,'store']);
+    Route::delete('/review/delete',[ReviewController::class,'delete']);
 
-    Route::post('/restaurants',GetRestaurantsController::class);
+    Route::get('/restaurants',GetRestaurantsController::class);
+
+    //Route::get('/user',[GetUser])
 });
 

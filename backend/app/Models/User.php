@@ -13,6 +13,11 @@ use Laravel\Sanctum\HasApiTokens;
  * @mixin Builder
  */
 
+/**
+ * @property int $id
+ */
+
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
