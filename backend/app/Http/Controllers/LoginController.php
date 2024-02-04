@@ -80,8 +80,9 @@ class LoginController extends Controller
         return response()->json(['status' => 'failed', 'message' => 'Invalid verification code.', 'errors' => []], 401);
     }
 
-    public function logout(Request $request){
+    public function logout(){
         auth()->user()->currentAccessToken()->delete();
+        return response()->json(['status' => 'success', 'message' => 'Logout is done.'], 200);
     }
 
 }

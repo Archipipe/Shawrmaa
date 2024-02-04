@@ -10,6 +10,7 @@ class ReviewController extends Controller
 {
     public function store(Request $request)
     {
+
         $messages = [
             'required' => 'Это поле должно быть заполнено.',
             'review.between' => 'Отзыв должен быть между :min - :max',
