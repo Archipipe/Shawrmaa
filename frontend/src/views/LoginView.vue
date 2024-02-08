@@ -11,7 +11,7 @@
             <UiInput placeholder="Имя" type="text"></UiInput>
           </div>
           <div class="label__wrapper">
-            <UiInput placeholder="Пароль" type="password"></UiInput>
+            <UiInput placeholder="Почта" type="text"></UiInput>
           </div>
         </div>
         <UiButton buttonType="submit" type="submit">Войти</UiButton>
