@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import Hamburger from "../assets/icons/icon-hamburger.svg";
+import Shawarma from "../assets/icons/icon-shawarma.svg";
 
 const icons = {
-  "logo": Hamburger,
+  'shawarma': Shawarma,
 };
 
 export default {
